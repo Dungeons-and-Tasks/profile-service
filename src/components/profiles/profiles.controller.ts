@@ -5,7 +5,7 @@ import { ProfilesService } from './profiles.service';
 
 import { logger } from '@/utils/logger.util';
 
-import { AuthGuard } from '@/common/guard';
+import { AuthGuard, ProfileExistGuard } from '@/common/guard';
 import { Request } from '@/common/interfaces';
 
 @Controller('profiles')
@@ -30,7 +30,7 @@ export class ProfilesController {
   }
 
   @Get(':id')
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard, ProfileExistGuard)
   async getProfile(@Req() request: Request, @Param('id') id: string) {
     logger.debug({ message: 'Start getProfile request', params: { requestId: request.headers.requestId } });
 
@@ -64,7 +64,7 @@ export class ProfilesController {
   }
 
   @Put(':id')
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard, ProfileExistGuard)
   async updateProfile(@Req() request: Request, @Param('id') id: string, @Body() updateProfileDTO: UpdateProfileDto) {
     logger.debug({ message: 'Start updateProfile request', params: { requestId: request.headers.requestId } });
 
@@ -81,7 +81,7 @@ export class ProfilesController {
   }
 
   @Delete(':id')
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard, ProfileExistGuard)
   async deleteProfile(@Req() request: Request, @Param('id') id: string) {
     logger.debug({ message: 'Start deleteProfile request', params: { requestId: request.headers.requestId } });
 
