@@ -25,7 +25,7 @@ async function bootstrap() {
 
   initSwagger(app);
 
-  await app.register(fastifyCookie, { secret: config.server.cookie.secret });
+  await app.register(fastifyCookie);
 
   // Listen server
   await app.listen(config.server.port, config.server.host, (err, address) => console.log(err || `server started at ${address}`));
