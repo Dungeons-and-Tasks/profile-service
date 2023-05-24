@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
 
-export class CreateProfileDto {
+export class CreateProfileDTO {
   @IsString()
   @IsUUID(4)
   @IsNotEmpty()

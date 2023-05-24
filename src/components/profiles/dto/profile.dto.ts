@@ -1,6 +1,6 @@
 import { Profile } from '../entities';
 
-export class ProfileDto {
+export class ProfileDTO {
   id: string;
   nickname: string;
   createdAt: Date;

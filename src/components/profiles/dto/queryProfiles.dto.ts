@@ -7,7 +7,7 @@ enum OrderBy {
   UpdatedAt = 'updatedAt',
 }
 
-export class QueryProfilesDto extends QueryEntitiesDTO {
+export class QueryProfilesDTO extends QueryEntitiesDTO {
   @IsEnum(OrderBy)
   @IsOptional()
   order_by?: OrderBy;

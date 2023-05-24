@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query, Req, UseGuards } from '@nestjs/common';
 
-import { CreateProfileDto, QueryProfilesDto, UpdateProfileDto } from './dto';
+import { CreateProfileDTO, QueryProfilesDTO, UpdateProfileDTO } from './dto';
 import { ProfilesService } from './profiles.service';
 
 import { logger } from '@/utils/logger.util';
@@ -14,7 +14,7 @@ export class ProfilesController {
 
   @Get()
   @UseGuards(AuthGuard)
-  async getProfiles(@Req() request: Request, @Query() queryProfilesDTO: QueryProfilesDto) {
+  async getProfiles(@Req() request: Request, @Query() queryProfilesDTO: QueryProfilesDTO) {
     logger.debug({ message: 'Start getProfiles request', params: { requestId: request.headers.requestId } });
 
     try {
@@ -48,7 +48,7 @@ export class ProfilesController {
 
   @Post()
   @UseGuards(AuthGuard)
-  async createProfile(@Req() request: Request, @Body() createProfileDTO: CreateProfileDto) {
+  async createProfile(@Req() request: Request, @Body() createProfileDTO: CreateProfileDTO) {
     logger.debug({ message: 'Start createProfile request', params: { requestId: request.headers.requestId } });
 
     try {
@@ -65,7 +65,7 @@ export class ProfilesController {
 
   @Put(':id')
   @UseGuards(AuthGuard, ProfileExistGuard)
-  async updateProfile(@Req() request: Request, @Param('id') id: string, @Body() updateProfileDTO: UpdateProfileDto) {
+  async updateProfile(@Req() request: Request, @Param('id') id: string, @Body() updateProfileDTO: UpdateProfileDTO) {
     logger.debug({ message: 'Start updateProfile request', params: { requestId: request.headers.requestId } });
 
     try {

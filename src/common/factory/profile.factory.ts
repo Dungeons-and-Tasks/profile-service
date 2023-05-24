@@ -1,8 +1,8 @@
-import { CreateProfileDto, UpdateProfileDto } from '../../components/profiles/dto';
+import { CreateProfileDTO, UpdateProfileDTO } from '../../components/profiles/dto';
 import { Profile } from '../../components/profiles/entities';
 
 export abstract class ProfileFactory {
-  static fromCreateProfileDTO(createAccountDTO?: CreateProfileDto) {
+  static fromCreateProfileDTO(createAccountDTO?: CreateProfileDTO) {
     const { nickname, userId } = createAccountDTO;
     const profile = new Profile();
 
@@ -12,7 +12,7 @@ export abstract class ProfileFactory {
     return profile;
   }
 
-  static fromUpdateProfileDTO(updateAccountDTO: UpdateProfileDto) {
+  static fromUpdateProfileDTO(updateAccountDTO: UpdateProfileDTO) {
     const { nickname } = updateAccountDTO;
     const profile = new Profile();
 
